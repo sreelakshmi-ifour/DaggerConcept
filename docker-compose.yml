@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  web:
+    image: kyleadolson/kyleadolson-images:disruptiveapi
+    volumes:
+      - .:/disruptiveapi
+    ports:
+      - "8000:8000"
+  web2:
+    build: .
+    container_name: kyleadolson/kyleadolson-images:daggerconcept
+    volumes:
+      - .:/disruptiveapi
+    ports:
+      - "3000:3000"
