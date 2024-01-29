@@ -57,7 +57,7 @@ router = routers.DefaultRouter()
 # router.register(r'SubContact', views.SubContactViewSet)
 # router.register(r'ContactTree', views.ContactTreeViewSet)
 # router.register(r'SubContactTree', views.SubContactTreeViewSet)
-# router.register(r'Address', views.AddressViewSet)
+# router.register(r'Address', views.AddressViewSet) 
 # router.register(r'PhoneNumber', views.PhoneNumberViewSet)
 # router.register(r'OtherDetail', views.OtherDetailViewSet)
 
@@ -80,6 +80,6 @@ router.register(r'TeamsList',views.TeamListViewSet)
 urlpatterns = [
     path("", views.index, name="index"),
     path("nfl/", include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    # path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
 

@@ -519,27 +519,27 @@ class PlayerInfoViewSet(viewsets.ModelViewSet):
 
         if work_contact_queryset.exists():
             work_contact_serializer = PlayerWorkContactSerializer(work_contact_queryset, many=True)
-            data['PlayerWorkContact'] = work_contact_serializer.data
+            data[2] = work_contact_serializer.data
 
         if company_contact_queryset.exists():
             company_contact_serializer = PlayerCompanyContactSerializer(company_contact_queryset, many=True)
-            data['PlayerCompanyContact'] = company_contact_serializer.data
+            data[3] = company_contact_serializer.data
 
         if rep_contact_queryset.exists():
             rep_contact_serializer = PlayerRespresentativeContactSerializer(rep_contact_queryset, many=True)
-            data['playerRepContact'] = rep_contact_serializer.data
+            data[4] = rep_contact_serializer.data
 
         if family_contact_queryset.exists():
             family_contact_serializer = PlayerFamilyContactSerializer(family_contact_queryset, many=True)
-            data['playerFamilyContact'] = family_contact_serializer.data
+            data[5] = family_contact_serializer.data
             
         if merch_designer_queryset.exists():
             merch_designer_serializer = PlayerMerchDesignerSerializer(merch_designer_queryset, many=True)
-            data['playerMerchDesigner'] = merch_designer_serializer.data
+            data[6] = merch_designer_serializer.data
             
         if club_contact_queryset.exists():
             club_contact_serializer = PlayerClubContactSerializer(club_contact_queryset, many=True)
-            data['playerClubContact'] = club_contact_serializer.data
+            data[7] = club_contact_serializer.data
 
        
         
@@ -557,6 +557,9 @@ class NCAAFTeamsViewSet(viewsets.ModelViewSet):
         return HttpResponse(serializer.data)
 
 class NFLPlayersListViewSet(viewsets.ModelViewSet):
+    
+    http_method_names = ['get']
+
     """
     API endpoint that allows PlayerDetail to be viewed.
     """
@@ -574,5 +577,8 @@ class NFLPlayersListViewSet(viewsets.ModelViewSet):
         return Response(response_data)
     
 class TeamListViewSet(viewsets.ModelViewSet):
+    
+    http_method_names = ['get']
+
     queryset=NFLTeamContactInfo.objects.all()
     serializer_class = TeamListSerializer
